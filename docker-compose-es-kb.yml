@@ -1,4 +1,4 @@
-version: '2'
+version: '3.2'
 
 services:
 
@@ -8,14 +8,14 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
-      - "9200:9200"
-      - "9300:9300"
+    - "9200:9200"
+    - "9300:9300"
     environment:
-      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
     networks:
-      - elk
+    - elk
 
   kibana:
     build:
@@ -23,13 +23,13 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./kibana/config/:/usr/share/kibana/config:ro
+    - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
-      - "5601:5601"
+    - "5601:5601"
     networks:
-      - elk
+    - elk
     depends_on:
-      - elasticsearch
+    - elasticsearch
 
 networks:
 
