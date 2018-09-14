@@ -17,6 +17,5 @@ output {
 	elasticsearch {
 		hosts => "${ES_HOST}:${ES_PORT}"
 		index => "sensor"
-		## hosts => "167.99.106.248:9200"
 	}
 }
