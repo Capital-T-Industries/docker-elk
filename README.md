@@ -62,7 +62,7 @@ LS_INPUT_TCP_CODEC=line
 LS_INPUT_FILE_LOCAL=./logstash/log/output.log
 LS_INPUT_FILE=/usr/share/logstash/log/output.log
 LS_INPUT_FILE_CODEC=plain
-#LS_OUTPUT_INDEX="logstash-%{+YYYY.MM.dd}"
+LS_OUTPUT_INDEX=logstash-%{+YYYY.MM.dd}
 
 KB_PORT=5601
 ```
