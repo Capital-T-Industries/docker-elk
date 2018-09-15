@@ -6,12 +6,12 @@ services:
     build:
       context: elasticsearch/
       args:
-        ELK_VERSION: $ELK_VERSION
+        ELK_VERSION: "$ELK_VERSION"
     volumes:
-    - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+    - "es_data:/usr/share/elasticsearch/data"
     ports:
-    - "9200:9200"
-    - "9300:9300"
+    - "$ES_PORT:$ES_PORT"
+    - "$ES_CLUSTER_PORT:$ES_CLUSTER_PORT"
     environment:
     - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
     networks:
@@ -21,17 +21,18 @@ services:
     build:
       context: kibana/
       args:
-        ELK_VERSION: $ELK_VERSION
-    volumes:
-    - ./kibana/config/:/usr/share/kibana/config:ro
+        ELK_VERSION: "$ELK_VERSION"
     ports:
-    - "5601:5601"
+    - "$KB_PORT:$KB_PORT"
     networks:
     - elk
-    depends_on:
+    links:
     - elasticsearch
 
 networks:
-
   elk:
     driver: bridge
+
+volumes:
+  es_data:
+    external: false

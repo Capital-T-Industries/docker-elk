@@ -6,12 +6,10 @@ services:
     build:
       context: logstash/
       args:
-        ELK_VERSION: $ELK_VERSION
-        LS_LOGFILE: $LS_LOGFILE
+        ELK_VERSION: "$ELK_VERSION"
+        LS_LOGFILE: "$LS_LOGFILE"
     volumes:
-    - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-    - ./logstash/pipeline:/usr/share/logstash/pipeline
-    - ./logstash/log/temperature.log:$LS_LOGFILE
+    - "./logstash/log/temperature.log:$LS_LOGFILE"
     ports:
     - "$LS_PORT:$LS_PORT"
     - "9600:9600"
