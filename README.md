@@ -1,6 +1,6 @@
 # Elastic stack (ELK) on Docker
 
-![GitHub version](https://img.shields.io/github/tag/Capital-T-Industries/docker-elk.svg)
+![GitHub version](https://img.shields.io/github/release/Capital-T-Industries/docker-elk.svg)
 ![GitHub license](https://img.shields.io/github/license/Capital-T-Industries/docker-elk.svg)
 
 ## Basic Usage
