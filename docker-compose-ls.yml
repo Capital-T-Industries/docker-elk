@@ -7,13 +7,19 @@ services:
       context: logstash/
       args:
         ELK_VERSION: $ELK_VERSION
+        LS_LOGFILE: $LS_LOGFILE
     volumes:
-    - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-    - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+    - ./logstash/pipeline:/usr/share/logstash/pipeline
+    - ./logstash/log/temperature.log:$LS_LOGFILE
     ports:
-    - "5000:5000"
+    - "$LS_PORT:$LS_PORT"
     - "9600:9600"
     environment:
     - "LS_JAVA_OPTS:'-Xmx256m -Xms256m'"
     - "ES_HOST=$ES_HOST"
     - "ES_PORT=$ES_PORT"
+    - "LS_LOGFILE=$LS_LOGFILE"
+    - "LS_PORT=$LS_PORT"
+    - "LOG_LEVEL=$LOG_LEVEL"
+
