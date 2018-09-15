@@ -11,12 +11,25 @@ $ docker-compose up
 
 #### 1. Send a message through Logstash
 ```bash
-echo "sample data" | nc localhost 5000
+$ echo "sample data" | nc localhost 5000
 ```
 
-#### 2. Query index data from Elasticsearch
+#### 2. Query data from Elasticsearch
 ```bash
-echo "sample data" | nc localhost 5000
+$ curl -XGET "http://0.0.0.0:9200/logstash-*/_search?q=message:*data*"
+```
+
+```
+{
+  ...
+  "hits": {
+    "total": 1,
+    "max_score": 1,
+    "hits": [
+      ...
+    ]
+  }
+}
 ```
 
 #### 3. [Create strunning visualizations in Kibana](https://www.elastic.co/products/kibana)
