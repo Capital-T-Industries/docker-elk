@@ -14,14 +14,14 @@ $ docker-compose up
 
 #### 1a. Send a message through Logstash via tcp
 ```bash
-$ echo "sample data tcp" | nc localhost 5000
+$ echo '{"humidity": "0.5800", "temperature": "22.00", "timestamp": "2018-09-15T03:02:22.957141"}' | nc localhost 5000
 ```
 
 #### 1b. Send a message through Logstash via file
 
 ```bash
 # from the project root directory (i.e. docker-elk)
-$ echo "sample data file" >> ./logstash/log/output.log
+$ echo '{"humidity": "0.5410", "temperature": "21.10", "timestamp": "2018-09-15T04:12:22.572141"}' >> ./logstash/log/output.log
 ```
 
 #### 2. Query data from Elasticsearch
