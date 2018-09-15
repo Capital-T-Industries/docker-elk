@@ -30,7 +30,7 @@ $ curl -XGET "http://0.0.0.0:9200/logstash-*/_search?q=message:*data*"
 {
   ...
   "hits": {
-    "total": 1,
+    "total": 2,
     "max_score": 1,
     "hits": [
       ...
