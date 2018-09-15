@@ -70,5 +70,9 @@ Set the overrides either in the [`.env`](.env) or as in the environment, then ru
 $ docker-compose up
 ```
 
+## Contributing
+* [Bug Report](.github/bug_report.md)
+* [Feature Request](.github/eature_request.md)
+
 ## License
 MIT &copy; [**Capital T Industries**](https://github.com/Capital-T-Industries)
