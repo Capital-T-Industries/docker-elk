@@ -10,10 +10,11 @@ services:
     volumes:
     - "es_data:/usr/share/elasticsearch/data"
     ports:
-    - "9200:9200"
-    - "9300:9300"
+    - "$ES_PORT:$ES_PORT"
+    - "$ES_CLUSTER_PORT:$ES_CLUSTER_PORT"
     environment:
     - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
+    - "LOG_LEVEL=$LOG_LEVEL"
     networks:
     - elk
 
@@ -22,13 +23,15 @@ services:
       context: logstash/
       args:
         ELK_VERSION: "$ELK_VERSION"
-    volumes:
-    - "./logstash/log/temperature.log:$LS_LOGFILE"
     ports:
-    - "5000:5000"
-    - "9600:9600"
+    - "$LS_PORT:$LS_PORT"
+    - "$LS_INPUT_PORT:$LS_INPUT_PORT"
     environment:
     - "LS_JAVA_OPTS:'-Xmx256m -Xms256m'"
+    - "ES_HOST=$ES_HOST"
+    - "ES_PORT=$ES_PORT"
+    - "LS_INPUT_PORT=$LS_INPUT_PORT"
+    - "LOG_LEVEL=$LOG_LEVEL"
     networks:
     - elk
     links:
@@ -40,7 +43,10 @@ services:
       args:
         ELK_VERSION: "$ELK_VERSION"
     ports:
-    - "5601:5601"
+    - "$KB_PORT:$KB_PORT"
+    environment:
+    - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
+    - "LOG_LEVEL=$LOG_LEVEL"
     networks:
     - elk
     links:
