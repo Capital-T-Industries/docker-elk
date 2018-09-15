@@ -11,12 +11,14 @@ $ docker-compose up
 
 #### 1a. Send a message through Logstash via tcp
 ```bash
-$ echo "sample data" | nc localhost 5000
+$ echo "sample data tcp" | nc localhost 5000
 ```
 
-#### 1v. Send a message through Logstash via file
+#### 1b. Send a message through Logstash via file
+
 ```bash
-$ TODO
+# from the project root directory (i.e. docker-elk)
+$ echo "sample data file" >> ./logstash/log/output.log
 ```
 
 #### 2. Query data from Elasticsearch
@@ -57,10 +59,9 @@ LS_INPUT_TCP_CODEC=json
 LS_INPUT_FILE_LOCAL=$(pwd)/logstash/log/output.log
 LS_INPUT_FILE=/usr/share/logstash/log/output.log
 LS_INPUT_FILE_CODEC=json
-LS_OUTPUT_INDEX="logstash-%{+YYYY.MM.dd}"
+#LS_OUTPUT_INDEX="logstash-%{+YYYY.MM.dd}"
 
 KB_PORT=5601
-
 ```
 
 Set the overrides either in the [`.env`](.env) or as in the environment, then run `docker-compose` as usual.
