@@ -10,8 +10,8 @@ services:
     volumes:
     - "es_data:/usr/share/elasticsearch/data"
     ports:
-    - "$ES_PORT:$ES_PORT"
-    - "$ES_CLUSTER_PORT:$ES_CLUSTER_PORT"
+    - "$ES_PORT:9200"
+    - "$ES_CLUSTER_PORT:9300"
     environment:
     - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
     env_file:
@@ -25,7 +25,7 @@ services:
       args:
         ELK_VERSION: "$ELK_VERSION"
     ports:
-    - "$LS_PORT:$LS_PORT"
+    - "$LS_PORT:5600"
     - "$LS_INPUT_PORT:$LS_INPUT_PORT"
     environment:
     - "LS_JAVA_OPTS:'-Xmx256m -Xms256m'"
@@ -42,7 +42,7 @@ services:
       args:
         ELK_VERSION: "$ELK_VERSION"
     ports:
-    - "$KB_PORT:$KB_PORT"
+    - "$KB_PORT:5601"
     env_file:
     - ./.env
     networks:
