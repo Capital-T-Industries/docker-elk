@@ -69,3 +69,6 @@ Set the overrides either in the [`.env`](.env) or as in the environment, then ru
 ```bash
 $ docker-compose up
 ```
+
+## License
+MIT &copy; [**Capital T Industries**](https://github.com/Capital-T-Industries)
