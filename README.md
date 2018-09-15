@@ -1,4 +1,4 @@
-# Elastic stack (ELK) on Docker
+# The ELK stack (Elasticsearch, Logstash, Kibana) powered by Docker and Compose
 
 ![GitHub version](https://img.shields.io/github/release/Capital-T-Industries/docker-elk.svg)
 ![GitHub license](https://img.shields.io/github/license/Capital-T-Industries/docker-elk.svg)
