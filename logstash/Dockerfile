@@ -1,6 +1,11 @@
 ARG ELK_VERSION
-ARG LS_LOGFILE
 
 # https://github.com/elastic/logstash-docker
 FROM docker.elastic.co/logstash/logstash-oss:${ELK_VERSION}
-RUN mkdir -p "$(dirname $LS_LOGFILE)" && touch "$LS_LOGFILE"
+
+ARG LS_LOGFILE
+
+COPY --chown=logstash:root ./config /usr/share/logstash/config/
+COPY --chown=logstash:root ./pipeline /usr/share/logstash/pipeline/
+RUN install --owner=logstash --group=root -d "$(dirname $LS_LOGFILE)"
+
