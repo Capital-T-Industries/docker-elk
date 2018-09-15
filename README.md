@@ -1,5 +1,8 @@
 # Elastic stack (ELK) on Docker
 
+![GitHub tag](https://img.shields.io/github/tag/Capital-T-Industries/docker-elk.svg)
+![GitHub](https://img.shields.io/github/license/Capital-T-Industries/docker-elk.svg)
+
 ## Basic Usage
 ```bash
 $ docker-compose up
