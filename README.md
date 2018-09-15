@@ -43,14 +43,13 @@ The *default* values are:
 ELK_VERSION=6.4.0
 LOG_LEVEL=info
 
-ES_HOST=host.docker.internal
 ES_PORT=9200
 ES_CLUSTER_PORT=9300
 
 LS_PORT=9600
 LS_INPUT_PORT=5000
 LS_INPUT_CODEC=line
-LS_OUTPUT_INDEX="logstash-%{+YYYY.MM.dd}"
+#LS_OUTPUT_INDEX=
 
 KB_PORT=5601
 ```
