@@ -13,8 +13,9 @@ services:
     - "$ES_PORT:$ES_PORT"
     - "$ES_CLUSTER_PORT:$ES_CLUSTER_PORT"
     environment:
-    - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
-    - "LOG_LEVEL=$LOG_LEVEL"
+    - ES_JAVA_OPTS="-Xmx256m -Xms256m"
+    env_file:
+    - ./.env
     networks:
     - elk
 
@@ -23,15 +24,14 @@ services:
       context: logstash/
       args:
         ELK_VERSION: "$ELK_VERSION"
+        LS_LOGFILE: "$LS_LOGFILE"
     ports:
     - "$LS_PORT:$LS_PORT"
     - "$LS_INPUT_PORT:$LS_INPUT_PORT"
     environment:
-    - "LS_JAVA_OPTS:'-Xmx256m -Xms256m'"
-    - "ES_HOST=$ES_HOST"
-    - "ES_PORT=$ES_PORT"
-    - "LS_INPUT_PORT=$LS_INPUT_PORT"
-    - "LOG_LEVEL=$LOG_LEVEL"
+    - LS_JAVA_OPTS="-Xmx256m -Xms256m"
+    env_file:
+    - ./.env
     networks:
     - elk
     links:
@@ -44,9 +44,8 @@ services:
         ELK_VERSION: "$ELK_VERSION"
     ports:
     - "$KB_PORT:$KB_PORT"
-    environment:
-    - "ES_JAVA_OPTS:'-Xmx256m -Xms256m'"
-    - "LOG_LEVEL=$LOG_LEVEL"
+    env_file:
+    - ./.env
     networks:
     - elk
     links:
