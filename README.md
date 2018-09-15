@@ -9,6 +9,8 @@ $ docker-compose up
 * Logstash will be running locally on port **9600** and be accepting tcp input on port **5000**
 * Kibana will be running locally on port **5601**
 
+<br>
+
 ### 1. Send a message through Logstash
 ```bash
 echo "sample data" | nc localhost 5000
@@ -21,6 +23,7 @@ echo "sample data" | nc localhost 5000
 
 ### 3. [Create strunning visualizations in Kibana](https://www.elastic.co/products/kibana)
 
+<br>
 
 ## Custom Usage
 
