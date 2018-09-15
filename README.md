@@ -6,7 +6,7 @@ $ docker-compose up
 ```
 
 * Elasticsearch will be running locally on port **9200**
-* Logstash will be running locally on port **9600** and be accepting tcp input on port **500**
+* Logstash will be running locally on port **9600** and be accepting tcp input on port **5000**
 * Kibana will be running locally on port **5601**
 
 ## Custom Usage
