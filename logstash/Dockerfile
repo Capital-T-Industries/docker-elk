@@ -7,5 +7,4 @@ ARG LS_LOGFILE
 
 COPY --chown=logstash:root ./config /usr/share/logstash/config/
 COPY --chown=logstash:root ./pipeline /usr/share/logstash/pipeline/
-RUN install --owner=logstash --group=root -d "$(dirname $LS_LOGFILE)"
 
