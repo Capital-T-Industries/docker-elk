@@ -24,9 +24,9 @@ services:
       context: logstash/
       args:
         ELK_VERSION: "$ELK_VERSION"
-        LS_LOGFILE: "$LS_LOGFILE"
+        LS_INPUT_FILE: "$LS_INPUT_FILE"
     volumes:
-    - "./logstash/log/output.log:$LS_LOGFILE"
+    - "./logstash/log/output.log:$LS_INPUT_FILE"
     ports:
     - "$LS_PORT:$LS_PORT"
     - "$LS_INPUT_PORT:$LS_INPUT_PORT"
