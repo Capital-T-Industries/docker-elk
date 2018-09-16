@@ -10,7 +10,7 @@
           "fields": {
             "keyword": {
               "type": "keyword",
-              "ignore_above": 255
+              "ignore_above": 256
             }
           }
         },
