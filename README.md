@@ -42,7 +42,7 @@ $ curl -XGET "http://0.0.0.0:9200/logstash-*/_search?q=message:*data*"
 }
 ```
 
-#### 3. [Create strunning visualizations in Kibana](https://www.elastic.co/products/kibana)
+#### 3. [Create stunning visualizations in Kibana](https://www.elastic.co/products/kibana)
 
 ## Custom Usage
 
