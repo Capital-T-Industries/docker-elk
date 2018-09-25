@@ -33,7 +33,7 @@ services:
     - ./.env
     networks:
     - elk
-    links:
+    depends_on:
     - elasticsearch
 
   kibana:
@@ -47,7 +47,7 @@ services:
     - ./.env
     networks:
     - elk
-    links:
+    depends_on:
     - elasticsearch
 
 networks:
