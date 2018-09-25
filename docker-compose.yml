@@ -25,7 +25,7 @@ services:
       args:
         ELK_VERSION: "$ELK_VERSION"
     ports:
-    - "$LS_PORT:5600"
+    - "$LS_PORT:9600"
     - "$LS_INPUT_TCP_PORT:$LS_INPUT_TCP_PORT"
     environment:
     - "LS_JAVA_OPTS:'-Xmx256m -Xms256m'"
